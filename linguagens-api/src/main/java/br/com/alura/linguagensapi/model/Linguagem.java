@@ -10,14 +10,14 @@ public class Linguagem {
     private String id;
     private String title;
     private String image;
-    private int rating;
+    private int ranking;
 
     public Linguagem(){};
 
     public Linguagem(String title, String image, int rating) {
         this.title = title;
         this.image = image;
-        this.rating = rating;
+        this.ranking = rating;
     }
 
     public String getId() {
@@ -45,10 +45,10 @@ public class Linguagem {
     }
 
     public int getRating() {
-        return rating;
+        return ranking;
     }
 
     public void setRating(int rating) {
-        this.rating = rating;
+        this.ranking = rating;
     }
 }
