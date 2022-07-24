@@ -20,7 +20,7 @@ public class App {
             System.out.println();
         }
 
-        String url = "https://api.mocki.io/v2/549a5d8b/NASA-APOD-JamesWebbSpaceTelescope";
+        var url = "https://api.mocki.io/v2/549a5d8b/NASA-APOD-JamesWebbSpaceTelescope";
         ExtratorDeConteudo extratorNasa = new ExtratorConteudoNasa();
 
         var http = new ClienteHttp();
