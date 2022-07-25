@@ -23,7 +23,7 @@ public class GeradorDeSticker {
         imagemCopiada.drawImage(imagemOriginal, 0, 0, null);
 
         // configurar a fonte
-        var fonte = new Font(Font.SANS_SERIF, Font.BOLD, 64);
+        var fonte = new Font(Font.SANS_SERIF, Font.BOLD, 24);
         imagemCopiada.setColor(Color.LIGHT_GRAY);
         imagemCopiada.setFont(fonte);
 

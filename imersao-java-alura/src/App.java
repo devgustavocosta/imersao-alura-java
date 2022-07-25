@@ -3,11 +3,17 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class App {
-    public static final String FUNDO_AZUL ="\033[0;34m";
-    public static final String FUNDO_VERMELHO = "\033[0;31m";
-    public static final String ANSI_RESET = "\u001B[0m";
-
     public static void main(String[] args) throws Exception {
+
+        // enum de api
+        var apiCriada = EnumAPI.LINGUAGEM;
+        var apiNasa = EnumAPI.NASA;
+        var apiIMDB = EnumAPI.IMDB;
+
+        // enum de cores
+        var azul = EnumCor.AZUL;
+        var vermelho = EnumCor.VERMELHO;
+        var reset = EnumCor.RESET;
 
         // criar diretório
         var nomeDoDiretorio = "C:\\Users\\gustavoc\\Desktop\\imersao-alura\\imersao-alura\\saida";
@@ -20,13 +26,10 @@ public class App {
             System.out.println();
         }
 
-        var url = "https://api.mocki.io/v2/549a5d8b/NASA-APOD-JamesWebbSpaceTelescope";
-        ExtratorDeConteudo extratorNasa = new ExtratorConteudoNasa();
-
         var http = new ClienteHttp();
-        var json = http.buscaDados(url);
+        var json = http.buscaDados(apiCriada.url());
 
-        var extraiConteudos =  extratorNasa.extraiConteudos(json);
+        var extraiConteudos =  apiCriada.extrator().extraiConteudos(json);
 
         var geradorDeSticker = new GeradorDeSticker();
 
@@ -39,8 +42,8 @@ public class App {
 
             geradorDeSticker.criarSticker(inputStream, nomeArquivo);
 
-            System.out.println("Titulo: " + FUNDO_AZUL + conteudo.titulo() + ANSI_RESET);
-            System.out.println("Data: " + FUNDO_VERMELHO + conteudo.data() + ANSI_RESET);
+            System.out.println("Titulo: " + azul + conteudo.titulo() + reset);
+            System.out.println("Data: " + vermelho + conteudo.data() + reset);
             System.out.println();
 
         }
